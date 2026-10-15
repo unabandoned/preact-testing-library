@@ -79,12 +79,12 @@ as one of your project's `devDependencies`:
 npm install --save-dev @unabandoned/testing-library-preact
 ```
 
-This library has `peerDependencies` listings for `preact >= 10`.
+This library has `peerDependencies` listings for `preact` 10 and 11.
 
 💡 You may also be interested in installing `@testing-library/jest-dom` so you can use
 [the custom jest matchers](https://github.com/testing-library/jest-dom).
 
-📝 This library supports Preact X (10.x). It takes advantage of the `act` test utility in
+📝 This library supports Preact 10 and 11, and is built on `@testing-library/dom` 10. It takes advantage of the `act` test utility in
 `preact/test-utils` to enable both Preact Hook and Class components to be easily tested.
 
 📝 If you're looking for a solution for Preact 8.x then install `preact-testing-library`.
