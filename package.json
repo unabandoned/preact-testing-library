@@ -1,6 +1,6 @@
 {
   "name": "@unabandoned/testing-library-preact",
-  "version": "3.2.4",
+  "version": "3.3.0",
   "description": "Simple and complete Preact DOM testing utilities that encourage good testing practices.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
