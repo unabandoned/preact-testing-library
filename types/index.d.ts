@@ -1,15 +1,19 @@
-import { queries, Queries, BoundFunction } from '@testing-library/dom'
+import { queries, Queries, BoundFunction, PrettyDOMOptions } from '@testing-library/dom'
 import { act as preactAct } from 'preact/test-utils'
-import { ComponentChild, ComponentType } from 'preact'
+import { ComponentChild, ComponentChildren, ComponentType } from 'preact'
 
 export * from '@testing-library/dom'
 
 export type RenderResult<Q extends Queries = typeof queries> = {
   container: Element
   baseElement: Element
-  debug: (baseElement?: Element | DocumentFragment) => void
+  debug: (
+    baseElement?: Element | DocumentFragment | Array<Element | DocumentFragment>,
+    maxLength?: number,
+    options?: PrettyDOMOptions,
+  ) => void
   rerender: (ui: ComponentChild) => void
-  unmount: () => boolean
+  unmount: () => void
   asFragment: () => DocumentFragment
 } & { [P in keyof Q]: BoundFunction<Q[P]> }
 
@@ -17,7 +21,15 @@ export interface RenderOptions<Q extends Queries = typeof queries> {
   container?: Element
   baseElement?: Element
   queries?: Q
-  wrapper?: ComponentChild
+  /**
+   * Render with Preact's `hydrate` instead of `render`, for markup that is
+   * already in the container (e.g. server-rendered).
+   */
+  hydrate?: boolean
+  /**
+   * A component rendered around the UI, e.g. a context provider.
+   */
+  wrapper?: ComponentType<{ children?: ComponentChildren }>
 }
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
@@ -81,7 +93,7 @@ export interface RenderHookOptions<Props> {
    *
    *  @see https://testing-library.com/docs/react-testing-library/api/#wrapper
    */
-  wrapper?: ComponentType<{ children: Element }>
+  wrapper?: ComponentType<{ children?: ComponentChildren }>
 }
 
 /**
