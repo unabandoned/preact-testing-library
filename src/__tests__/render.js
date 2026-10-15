@@ -1,6 +1,5 @@
-import '@testing-library/jest-dom/extend-expect'
 import { Component, createRef, h } from 'preact'
-import Portal from 'preact-portal'
+import { createPortal } from 'preact/compat'
 import { render } from '..'
 
 test('renders div into document', () => {
@@ -29,10 +28,9 @@ test('works great with preact portals', () => {
     }
 
     render () {
-      return (
-        <Portal into={this.portalNode}>
-          <Greet greeting="Hello" subject="World" />,
-        </Portal>
+      return createPortal(
+        <Greet greeting="Hello" subject="World" />,
+        this.portalNode
       )
     }
   }

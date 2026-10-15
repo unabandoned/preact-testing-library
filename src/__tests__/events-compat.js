@@ -3,7 +3,7 @@ import { fireEvent, render } from '..'
 import 'preact/compat'
 
 test('calling `fireEvent` with `preact/compat` and onChange works too', () => {
-  const handler = jest.fn()
+  const handler = vi.fn()
 
   // Preact only matches React's aliasing of `onChange` when `preact/compat` is used
   // This test ensures this is supported properly with `fireEvent.change()`
@@ -26,8 +26,8 @@ test('calling `fireEvent` with `preact/compat` and onChange works too', () => {
 
 test('should not alias `change` event to `input` for file, checkbox, or radio inputs', () => {
   for (const type of ['file', 'checkbox', 'radio']) {
-    const inputHandler = jest.fn()
-    const changeHandler = jest.fn()
+    const inputHandler = vi.fn()
+    const changeHandler = vi.fn()
 
     const {
       container: { firstChild: input }

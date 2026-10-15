@@ -15,7 +15,7 @@ practices.</p>
 
 > Inspired completely by [react-testing-library][react-testing-library]
 
-[![Build Status][build-badge]][build] [![Code Coverage][coverage-badge]][coverage]
+[![Build Status][build-badge]][build]
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 [![version][version-badge]][package] [![downloads][downloads-badge]][package]
@@ -26,6 +26,18 @@ practices.</p>
 </div>
 
 <hr />
+
+> **This is the `unabandoned` fork.** `@testing-library/preact` has not released since 3.2.4
+> (May 2024) and still depends on `@testing-library/dom` 8. This fork continues it as
+> [`@unabandoned/testing-library-preact`](https://www.npmjs.com/package/@unabandoned/testing-library-preact)
+> with a current dependency tree. To switch without touching your imports, alias it:
+>
+> ```
+> npm install --save-dev @testing-library/preact@npm:@unabandoned/testing-library-preact
+> ```
+>
+> Report problems with the fork [here](https://github.com/unabandoned/preact-testing-library/issues),
+> not upstream.
 
 ## Table of Contents
 
@@ -64,7 +76,7 @@ This module is distributed via [npm][npm] which is bundled with [node][node] and
 as one of your project's `devDependencies`:
 
 ```
-npm install --save-dev @testing-library/preact
+npm install --save-dev @unabandoned/testing-library-preact
 ```
 
 This library has `peerDependencies` listings for `preact >= 10`.
@@ -137,29 +149,29 @@ kind welcome!
 <!-- prettier-ignore-start -->
 [npm]: https://www.npmjs.com
 [node]: https://nodejs.org
-[build]: https://github.com/testing-library/preact-testing-library/actions?query=workflow%3Avalidate
-[build-badge]: https://img.shields.io/github/workflow/status/testing-library/preact-testing-library/validate?logo=github&style=flat-square
+[build]: https://github.com/unabandoned/preact-testing-library/actions/workflows/ci.yml
+[build-badge]: https://img.shields.io/github/actions/workflow/status/unabandoned/preact-testing-library/ci.yml?branch=main&logo=github&style=flat-square
 [coverage-badge]: https://img.shields.io/codecov/c/github/testing-library/preact-testing-library.svg?style=flat-square
 [coverage]: https://codecov.io/github/testing-library/preact-testing-library
-[package]: https://www.npmjs.com/package/@testing-library/preact
-[version-badge]: https://img.shields.io/npm/v/@testing-library/preact
-[downloads-badge]: https://img.shields.io/npm/dw/@testing-library/preact
+[package]: https://www.npmjs.com/package/@unabandoned/testing-library-preact
+[version-badge]: https://img.shields.io/npm/v/@unabandoned/testing-library-preact
+[downloads-badge]: https://img.shields.io/npm/dw/@unabandoned/testing-library-preact
 [slack]: https://preact-slack.now.sh
-[license]: https://github.com/testing-library/preact-testing-library/blob/main/LICENSE
-[license-badge]: https://img.shields.io/github/license/testing-library/preact-testing-library?color=b
+[license]: https://github.com/unabandoned/preact-testing-library/blob/main/LICENSE
+[license-badge]: https://img.shields.io/github/license/unabandoned/preact-testing-library?color=b
 [emojis]: https://github.com/all-contributors/all-contributors#emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [guiding-principle]: https://twitter.com/kentcdodds/status/977018512689455106
-[bugs]: https://github.com/testing-library/preact-testing-library/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Acreated-desc
-[requests]: https://github.com/testing-library/preact-testing-library/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Aenhancement+is%3Aopen
-[good-first-issue]: https://github.com/testing-library/preact-testing-library/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A"good+first+issue"+
+[bugs]: https://github.com/unabandoned/preact-testing-library/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Acreated-desc
+[requests]: https://github.com/unabandoned/preact-testing-library/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Aenhancement+is%3Aopen
+[good-first-issue]: https://github.com/unabandoned/preact-testing-library/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A"good+first+issue"+
 [stackoverflow]: https://stackoverflow.com/questions/tagged/preact-testing-library
 [react-testing-library]: https://github.com/testing-library/react-testing-library
 [react-testing-library-docs]: https://testing-library.com/docs/react-testing-library/intro
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/testing-library/preact-testing-library/blob/main/CODE_OF_CONDUCT.md
+[coc]: https://github.com/unabandoned/preact-testing-library/blob/main/CODE_OF_CONDUCT.md
 [preact-slack]: https://preact-slack.now.sh/
 [preact-slack-badge]: https://preact-slack.now.sh/badge.svg
 [commitzen]: http://commitizen.github.io/cz-cli/
