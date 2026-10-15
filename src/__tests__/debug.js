@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 
-import '@testing-library/jest-dom/extend-expect'
 import { h, Fragment } from 'preact'
 import { screen, render } from '..'
 
 beforeEach(() => {
-  jest.spyOn(console, 'log').mockImplementation(() => {})
+  vi.spyOn(console, 'log').mockImplementation(() => {})
 })
 
 afterEach(() => {
@@ -46,7 +45,7 @@ test('allows same arguments as prettyDOM', () => {
   debug(container, 6, { highlight: false })
   expect(console.log).toHaveBeenCalledTimes(1)
   expect(console.log.mock.calls[0]).toMatchInlineSnapshot(`
-    Array [
+    [
       "<div>
     ...",
     ]

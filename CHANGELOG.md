@@ -1,5 +1,5 @@
-# CHANGELOG
+# Changelog
 
-The changelog is automatically updated using
-[semantic-release](https://github.com/semantic-release/semantic-release). You
-can see it on the [releases page](../../releases).
+Releases of `@unabandoned/testing-library-preact` are recorded here by
+release-please. For `@testing-library/preact` 3.2.4 and earlier, see the
+[upstream releases page](https://github.com/testing-library/preact-testing-library/releases).

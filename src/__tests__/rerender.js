@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect'
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import { render } from '..'

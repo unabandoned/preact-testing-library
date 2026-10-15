@@ -140,7 +140,7 @@ eventTypes.forEach(({ type, events, elementType, init }) => {
 
       it(`triggers ${eventProp}`, () => {
         const ref = createRef()
-        const spy = jest.fn()
+        const spy = vi.fn()
 
         render(
           h(elementType, {
@@ -161,7 +161,7 @@ eventTypes.forEach(({ type, events, elementType, init }) => {
 })
 
 test('onInput works', () => {
-  const handler = jest.fn()
+  const handler = vi.fn()
 
   const {
     container: { firstChild: input }
@@ -181,7 +181,7 @@ test('onInput works', () => {
 })
 
 test('calling `fireEvent` directly works too', () => {
-  const handler = jest.fn()
+  const handler = vi.fn()
 
   const {
     container: { firstChild: button }

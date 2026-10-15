@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect'
 import { Component, h } from 'preact'
 import { screen, render, waitForElementToBeRemoved } from '..'
 

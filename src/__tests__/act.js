@@ -1,10 +1,9 @@
-import '@testing-library/jest-dom/extend-expect'
 import { createRef, h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 import { fireEvent, render } from '..'
 
 test('render calls useEffect immediately', () => {
-  const cb = jest.fn()
+  const cb = vi.fn()
 
   function Comp () {
     useEffect(cb)
@@ -25,7 +24,7 @@ test('findByTestId returns the element', async () => {
 })
 
 test('fireEvent triggers useEffect calls', () => {
-  const cb = jest.fn()
+  const cb = vi.fn()
 
   function Counter () {
     useEffect(cb)
@@ -44,7 +43,7 @@ test('fireEvent triggers useEffect calls', () => {
 })
 
 test('calls to hydrate will run useEffects', () => {
-  const cb = jest.fn()
+  const cb = vi.fn()
 
   function Comp () {
     useEffect(cb)

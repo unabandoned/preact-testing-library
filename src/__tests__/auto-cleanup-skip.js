@@ -2,9 +2,9 @@ import { h } from 'preact'
 
 let render
 
-beforeAll(() => {
+beforeAll(async () => {
   process.env.PTL_SKIP_AUTO_CLEANUP = 'true'
-  const rtl = require('../') // eslint-disable-line global-require
+  const rtl = await import('../')
   render = rtl.render
 })
 

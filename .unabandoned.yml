@@ -1,0 +1,30 @@
+schema: 1
+
+package: "@unabandoned/testing-library-preact"
+
+upstream:
+  repo: testing-library/preact-testing-library
+  reason: "last released 3.2.4 on 2024-05-27 and still pins @testing-library/dom ^8.11.1, two majors behind the current 10.x; its release pipeline has been failing since (upstream issue #78)"
+
+summary: >-
+  Preact Testing Library: render, rerender, renderHook, cleanup and a
+  Preact-aware fireEvent on top of @testing-library/dom, so Preact components
+  are tested through the DOM the way a user would drive them.
+
+why-forked: >-
+  nodewarden's frontend component tests (webapp/test) render through it. The
+  upstream package has not released since May 2024, so it keeps dragging
+  @testing-library/dom 8 into the tree beside the dom 10 that jest-dom and
+  user-event expect, and its preact peer range predates Preact 11, which
+  nodewarden runs. Forked so we own the dom dependency and the peer range and
+  Renovate keeps the tree current.
+
+used-by:
+  - consumer: "nodewarden"
+    purpose: >-
+      renders Preact components and hooks in the webapp's Vitest/jsdom
+      component tests (aliased as @testing-library/preact)
+
+status: active
+
+tags: [testing, preact, dom, testing-library, jsdom]
