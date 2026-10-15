@@ -1,5 +1,5 @@
 import { fireEvent as domFireEvent, createEvent } from '@testing-library/dom'
-import { options } from 'preact'
+import { h, options, render } from 'preact'
 
 let isCompat = false
 
@@ -25,6 +25,24 @@ const maybeAliasKey = (key, elem) => {
   return key;
 }
 
+// Preact 10 subscribes `onAnimationEnd` to "AnimationEnd" when the element has no
+// `onanimationend` property (as in jsdom), so we used to fire the PascalCase type.
+// Preact 11 always lowercases the name ("animationend"), the type the DOM and DTL use.
+// Probe once which convention the installed Preact follows.
+let listensLowerCase
+const preactListensLowerCase = (elem) => {
+  if (listensLowerCase === undefined) {
+    const doc = elem.ownerDocument
+    const container = doc.createElement('div')
+    let hit = false
+    render(h('div', { onPtlProbe: () => { hit = true } }), container)
+    container.firstChild.dispatchEvent(new doc.defaultView.Event('ptlprobe'))
+    render(null, container)
+    listensLowerCase = hit
+  }
+  return listensLowerCase
+}
+
 // Similar to RTL we make are own fireEvent helper that just calls DTL's fireEvent with that
 // we can that any specific behaviors to the helpers we need
 export const fireEvent = (...args) => domFireEvent(...args)
@@ -40,7 +58,7 @@ Object.keys(domFireEvent).forEach((key) => {
     // Preact aliases some change events when using `preact/compat` to mirror React's behavior
     const maybeAliasedKey = !isCompat ? key : maybeAliasKey(key, elem)
 
-    return isInElem
+    return isInElem || preactListensLowerCase(elem)
       ? domFireEvent[maybeAliasedKey](elem, init)
       : domFireEvent(
         elem,
