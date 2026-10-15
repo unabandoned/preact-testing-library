@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": false,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2022",
+    "lib": ["dom", "es2022"],
+    "jsx": "react",
+    "jsxFactory": "h",
+    "types": []
+  },
+  "include": ["test-types"]
+}
