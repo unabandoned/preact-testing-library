@@ -65,8 +65,8 @@
     "@testing-library/dom": "^10.4.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.3",
-    "@commitlint/config-conventional": "21.2.3",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
     "@testing-library/jest-dom": "7.0.1",
     "esbuild": "0.28.2",
     "jsdom": "30.1.3",
